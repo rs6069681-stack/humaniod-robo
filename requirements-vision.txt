@@ -1,0 +1,2 @@
+# Optional object detection. Install only after camera-only pipeline works.
+ultralytics>=8.2

@@ -1,0 +1,21 @@
+[Unit]
+Description=AI Laboratory Assistant Robot ROS 2 Stack
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=robot
+SupplementaryGroups=dialout video
+WorkingDirectory=/opt/lab_robot/robot_ros_software
+EnvironmentFile=/opt/lab_robot/robot_ros_software/config/robot.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/bin/bash /opt/lab_robot/robot_ros_software/scripts/run_robot.sh
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target
